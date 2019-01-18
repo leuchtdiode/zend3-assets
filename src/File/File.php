@@ -1,6 +1,7 @@
 <?php
 namespace Assets\File;
 
+use Assets\File\Url\Url;
 use DateTime;
 use Assets\Db\File\Entity;
 use Common\Hydration\ArrayHydratable;
@@ -14,11 +15,28 @@ class File implements ArrayHydratable
 	private $entity;
 
 	/**
-	 * @param Entity $entity
+	 * @ObjectToArrayHydratorProperty
+	 *
+	 * @var Url[]
 	 */
-	public function __construct(Entity $entity)
+	private $urls;
+
+	/**
+	 * @param Entity $entity
+	 * @param Url[] $urls
+	 */
+	public function __construct(Entity $entity, array $urls)
 	{
 		$this->entity = $entity;
+		$this->urls   = $urls;
+	}
+
+	/**
+	 * @return Url[]
+	 */
+	public function getUrls(): array
+	{
+		return $this->urls;
 	}
 
 	/**

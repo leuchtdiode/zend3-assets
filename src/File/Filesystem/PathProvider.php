@@ -3,7 +3,6 @@ namespace Assets\File\Filesystem;
 
 use Assets\Db\File\Entity;
 use Assets\File\Helper;
-use function getcwd;
 
 class PathProvider
 {
